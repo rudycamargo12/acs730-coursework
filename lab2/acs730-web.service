@@ -1,0 +1,17 @@
+[Unit]
+Description=ACS730 Lab 2 Web Application Service
+After=network.target
+
+[Service]
+Type=simple
+User=webuser
+Group=webuser
+WorkingDirectory=/var/www/lab2app
+ExecStart=/usr/bin/python3 -m http.server 80
+Restart=always
+
+# Permite al usuario webuser escuchar en el puerto 80 sin privilegios de root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
