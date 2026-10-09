@@ -1,0 +1,39 @@
+name: Lab 3 CI (Pull Request)
+
+on:
+  pull_request:
+    paths:
+      - 'lab3/**'
+      - '.github/workflows/lab3-ci.yml'
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.7
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./lab3
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: ./lab3
+
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: ./lab3
