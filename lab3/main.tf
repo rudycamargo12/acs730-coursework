@@ -18,13 +18,9 @@ terraform {
 provider "aws" {
   region = var.aws_region
 
-  # Opciones para omitir APIs bloqueadas por SCPs educativas de AWS Academy
-  skip_requesting_account_id  = false
-  s3_use_path_style           = false
-  
-  # Evita llamadas de metadatos avanzadas
-  skip_metadata_api_check     = true
-  skip_region_validation      = true
+  skip_requesting_account_id = false
+  skip_metadata_api_check    = true
+  skip_region_validation     = true
 }
 
 variable "aws_region" {
@@ -35,7 +31,5 @@ variable "aws_region" {
 resource "aws_s3_bucket" "lab3_bucket" {
   bucket_prefix = "acs730-lab3-resource-"
   force_destroy = true
-
-  # Previene explícitamente el chequeo de ObjectLock
-  object_lock_enabled = false
 }
+
