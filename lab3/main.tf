@@ -1,11 +1,10 @@
-
 terraform {
-  required_version = ">= 1.5.0"
+  required_version = "~> 1.10"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.67.0"
+      version = "~> 5.70"
     }
   }
 
@@ -13,25 +12,22 @@ terraform {
     bucket       = "acs730-lab3-tfstate-095587169727"
     key          = "lab3/terraform.tfstate"
     region       = "us-east-1"
+    encrypt      = true
     use_lockfile = true
   }
 }
 
 provider "aws" {
-  region = var.aws_region
-
-  skip_requesting_account_id = false
-  skip_metadata_api_check    = true
-  skip_region_validation     = true
+  region = "us-east-1"
 }
 
-variable "aws_region" {
+variable "greeting" {
   type    = string
-  default = "us-east-1"
+  default = "hello from the workstation"
 }
 
-resource "aws_s3_bucket" "lab3_bucket" {
-  bucket_prefix = "acs730-lab3-resource-"
-  force_destroy = true
+resource "aws_ssm_parameter" "lab3" {
+  name  = "/acs730/lab3/greeting"
+  type  = "String"
+  value = var.greeting
 }
-

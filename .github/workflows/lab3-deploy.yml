@@ -1,6 +1,10 @@
-name: Lab 3 Deploy (Push to Main)
+name: Lab 3 Deploy
 
 on:
+  pull_request:
+    paths:
+      - 'lab3/**'
+      - '.github/workflows/lab3-deploy.yml'
   push:
     branches:
       - main
@@ -9,11 +13,12 @@ on:
       - '.github/workflows/lab3-deploy.yml'
 
 concurrency:
-  group: terraform-lab3
+  group: lab3-deploy-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
-  apply:
+  plan:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,7 +27,8 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.10.5"
+          terraform_version: "1.10.3"
+          terraform_wrapper: false
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -33,9 +39,38 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -input=false
+        working-directory: ./lab3
+
+      - name: Terraform Plan
+        run: terraform plan -input=false
+        working-directory: ./lab3
+
+  apply:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.3"
+          terraform_wrapper: false
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Terraform Init
+        run: terraform init -input=false
         working-directory: ./lab3
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -input=false -auto-approve
         working-directory: ./lab3
