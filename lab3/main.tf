@@ -12,7 +12,6 @@ terraform {
     bucket       = "acs730-lab3-tfstate-095587169727"
     key          = "lab3/terraform.tfstate"
     region       = "us-east-1"
-    use_lockfile = true
   }
 }
 
