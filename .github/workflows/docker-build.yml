@@ -1,0 +1,46 @@
+name: Reusable Docker Build
+
+on:
+  workflow_call:
+    inputs:
+      image-tag:
+        description: Docker image tag
+        required: true
+        type: string
+    outputs:
+      image-tag:
+        description: Tag of the built Docker image
+        value: ${{ jobs.build.outputs.image-tag }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      image-tag: ${{ steps.meta.outputs.image-tag }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set image tag
+        id: meta
+        env:
+          IMAGE_TAG: ${{ inputs.image-tag }}
+        run: echo "image-tag=$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Build Docker image
+        env:
+          TAG: ${{ steps.meta.outputs.image-tag }}
+        run: docker build -f lab4/Dockerfile -t "acs730-lab4:$TAG" lab4/
+
+      - name: Save image
+        env:
+          TAG: ${{ steps.meta.outputs.image-tag }}
+        run: docker save "acs730-lab4:$TAG" -o image.tar
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: image
+          path: image.tar
+          retention-days: 1

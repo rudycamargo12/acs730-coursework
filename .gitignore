@@ -4,3 +4,9 @@
 .terraform/
 .env
 credentials
+# Lab 4 Python artifacts
+lab4/.venv/
+lab4/__pycache__/
+lab4/.pytest_cache/
+__pycache__/
+*.pyc
