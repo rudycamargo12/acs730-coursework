@@ -165,3 +165,29 @@ jobs:
       - name: Re-raise an upstream failure
         if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
         run: exit 1
+
+  required-check:
+    name: Lab 4 CI
+    needs: [test, build, smoke]
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify required jobs succeeded
+        env:
+          TEST_RESULT: ${{ needs.test.result }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          SMOKE_RESULT: ${{ needs.smoke.result }}
+        run: |
+          echo "Tests: $TEST_RESULT"
+          echo "Build: $BUILD_RESULT"
+          echo "Smoke test: $SMOKE_RESULT"
+
+          if [ "$TEST_RESULT" != "success" ] || \
+             [ "$BUILD_RESULT" != "success" ] || \
+             [ "$SMOKE_RESULT" != "success" ]; then
+            echo "One or more required jobs failed."
+            exit 1
+          fi
+
+          echo "All required jobs succeeded."

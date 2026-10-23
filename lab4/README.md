@@ -57,7 +57,7 @@ The Python dependency installation is implemented as a composite action in `.git
 
 ## Evidence
 
-Screenshots and CI timing measurements will be added to `evidence/` after the corresponding workflow runs have completed.
+Screenshots and CI timing measurements are recorded in `evidence/`. The evidence includes image-size comparisons, the CI workflow graph, the published GHCR package, and a JSON record of the required-check failure demonstration.
 
 
 ## Cache timing experiments
