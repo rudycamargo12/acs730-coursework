@@ -28,10 +28,17 @@ jobs:
           IMAGE_TAG: ${{ inputs.image-tag }}
         run: echo "image-tag=$IMAGE_TAG" >> "$GITHUB_OUTPUT"
 
-      - name: Build Docker image
+      - name: Build Docker image (timed, no cache)
         env:
           TAG: ${{ steps.meta.outputs.image-tag }}
-        run: docker build -f lab4/Dockerfile -t "acs730-lab4:$TAG" lab4/
+        run: |
+          start_time=$(date +%s)
+          docker build --no-cache -f lab4/Dockerfile -t "acs730-lab4:$TAG" lab4/
+          end_time=$(date +%s)
+          elapsed=$((end_time - start_time))
+          echo "DOCKER_BUILD_SECONDS=$elapsed"
+          echo "### Docker build timing (no cache)" >> "$GITHUB_STEP_SUMMARY"
+          echo "Duration: ${elapsed} seconds" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save image
         env:
