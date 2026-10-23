@@ -109,6 +109,37 @@ jobs:
         if: always()
         run: docker rm -f app 2>/dev/null || true
 
+  publish:
+    name: Publish image to GHCR
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [test, build, smoke]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Download image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: image
+
+      - name: Load Docker image
+        run: docker load -i image.tar
+
+      - name: Log in to GHCR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+
+      - name: Tag and push image
+        env:
+          TAG: sha-${{ github.sha }}
+          IMAGE: ghcr.io/${{ github.repository }}
+        run: |
+          IMAGE_LC=$(echo "$IMAGE" | tr '[:upper:]' '[:lower:]')
+          docker tag "acs730-lab4:$TAG" "$IMAGE_LC:$TAG"
+          docker push "$IMAGE_LC:$TAG"
+
   summary:
     name: Pipeline summary
     needs: [test, build, smoke]

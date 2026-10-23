@@ -58,3 +58,58 @@ The Python dependency installation is implemented as a composite action in `.git
 ## Evidence
 
 Screenshots and CI timing measurements will be added to `evidence/` after the corresponding workflow runs have completed.
+
+
+## Cache timing experiments
+
+Times were measured in GitHub Actions. The baseline ran without caching,
+the cache-miss run enabled caching for the first time, and the cache-hit
+run repeated the workflow with caching enabled.
+
+| Experiment | Baseline (no cache) | Cache miss | Cache hit |
+|---|---:|---:|---:|
+| Python dependency installation | 2,067 ms | 2,353 ms | 1,150 ms |
+| Docker image build | 8,087 ms | 8,425 ms | 8,147 ms |
+
+### Cache decision
+
+The pip cache is worthwhile for this experiment: the cache-hit installation
+took about 51% less time than the first cache-enabled run and about 44%
+less than the baseline.
+
+The Docker layer cache did not show a meaningful improvement in these
+measurements. The cache-hit build took 8,147 ms, close to the 8,087 ms
+baseline. Build time can vary between hosted runners, so more repeated runs
+would be needed to establish a reliable performance difference.
+
+Caching should be retained where it reduces repeated dependency downloads,
+but its value should be evaluated against actual workflow timings.
+
+## Image tagging
+
+CI builds use `sha-<commit-sha>` tags, for example `sha-abc123...`.
+A commit-SHA tag identifies the exact source revision used to build an image,
+making it easier to trace, reproduce, and roll back a deployment. It avoids
+relying only on a mutable tag such as `latest`.
+
+## GitHub Actions versus AWS-native CI/CD
+
+GitHub Actions is a practical choice for this repository because the source
+code and pull requests are hosted on GitHub, and CI results appear directly
+alongside code changes. GitHub-hosted runners also avoid needing AWS
+credentials for ordinary unit tests and image builds.
+
+AWS-native services such as CodePipeline and CodeBuild may be a better fit
+when a team needs deeper integration with AWS deployment environments,
+centralized AWS permissions, or an AWS-managed delivery pipeline. The choice
+depends on the existing team workflow, security requirements, and deployment
+architecture.
+
+## Evidence
+
+The `evidence/` directory should contain the requested screenshots:
+
+- `image-sizes.png` — comparison of the naive and optimized Docker images.
+- `ci-graph.png` — successful CI workflow graph.
+- `ghcr-package.png` — published GitHub Container Registry package.
+- `required-check.png` — required status check demonstrated on a pull request.
