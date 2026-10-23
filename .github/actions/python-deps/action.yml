@@ -17,12 +17,12 @@ runs:
     - name: Install Python dependencies (timed)
       shell: bash
       run: |
-        start_time=$(date +%s)
+        start_ns=$(date +%s%N)
         python -m pip install \
           -r "${{ inputs.requirements-file }}" \
           -r "${{ inputs.dev-requirements-file }}"
-        end_time=$(date +%s)
-        elapsed=$((end_time - start_time))
-        echo "PIP_INSTALL_SECONDS=$elapsed"
+        end_ns=$(date +%s%N)
+        elapsed_ms=$(((end_ns - start_ns) / 1000000))
+        echo "PIP_INSTALL_MS=$elapsed_ms"
         echo "### pip install timing" >> "$GITHUB_STEP_SUMMARY"
-        echo "Duration: ${elapsed} seconds" >> "$GITHUB_STEP_SUMMARY"
+        echo "Duration: ${elapsed_ms} ms" >> "$GITHUB_STEP_SUMMARY"

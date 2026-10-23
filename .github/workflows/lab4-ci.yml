@@ -3,6 +3,15 @@ name: Lab 4 CI
 
 on:
   workflow_dispatch:
+    inputs:
+      cache-mode:
+        description: 'Cache mode for timing experiments'
+        type: choice
+        options:
+          - none
+          - enabled
+        default: none
+        required: true
   pull_request:
     paths:
       - 'lab4/**'
@@ -35,10 +44,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python (without pip cache)
+        if: github.event_name != 'workflow_dispatch' || inputs.cache-mode == 'none'
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Set up Python (with pip cache)
+        if: github.event_name == 'workflow_dispatch' && inputs.cache-mode == 'enabled'
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: lab4/requirements*.txt
 
       - name: Install dependencies
         uses: ./.github/actions/python-deps
@@ -56,6 +74,7 @@ jobs:
     uses: ./.github/workflows/docker-build.yml
     with:
       image-tag: sha-${{ github.sha }}
+      cache_mode: ${{ inputs.cache-mode || 'none' }}
 
   smoke:
     name: Container smoke test

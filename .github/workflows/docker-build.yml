@@ -7,6 +7,11 @@ on:
         description: Docker image tag
         required: true
         type: string
+      cache_mode:
+        description: Docker layer cache mode
+        required: false
+        type: string
+        default: none
     outputs:
       image-tag:
         description: Tag of the built Docker image
@@ -28,17 +33,36 @@ jobs:
           IMAGE_TAG: ${{ inputs.image-tag }}
         run: echo "image-tag=$IMAGE_TAG" >> "$GITHUB_OUTPUT"
 
-      - name: Build Docker image (timed, no cache)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (timed)
         env:
           TAG: ${{ steps.meta.outputs.image-tag }}
+          CACHE_MODE: ${{ inputs.cache_mode }}
         run: |
-          start_time=$(date +%s)
-          docker build --no-cache -f lab4/Dockerfile -t "acs730-lab4:$TAG" lab4/
-          end_time=$(date +%s)
-          elapsed=$((end_time - start_time))
-          echo "DOCKER_BUILD_SECONDS=$elapsed"
-          echo "### Docker build timing (no cache)" >> "$GITHUB_STEP_SUMMARY"
-          echo "Duration: ${elapsed} seconds" >> "$GITHUB_STEP_SUMMARY"
+          start_ns=$(date +%s%N)
+
+          if [ "$CACHE_MODE" = "enabled" ]; then
+            docker buildx build --load \
+              --cache-from type=gha,scope=lab4-docker \
+              --cache-to type=gha,mode=max,scope=lab4-docker \
+              -f lab4/Dockerfile \
+              -t "acs730-lab4:$TAG" \
+              lab4/
+          else
+            docker buildx build --no-cache --load \
+              -f lab4/Dockerfile \
+              -t "acs730-lab4:$TAG" \
+              lab4/
+          fi
+
+          end_ns=$(date +%s%N)
+          elapsed_ms=$(((end_ns - start_ns) / 1000000))
+          echo "DOCKER_BUILD_MS=$elapsed_ms"
+          echo "### Docker build timing" >> "$GITHUB_STEP_SUMMARY"
+          echo "Cache mode: $CACHE_MODE" >> "$GITHUB_STEP_SUMMARY"
+          echo "Duration: ${elapsed_ms} ms" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save image
         env:
