@@ -22,9 +22,9 @@ Two Dockerfiles are provided for comparison:
 
 | Image | Displayed size |
 |---|---:|
-| Naive | 138 MB |
+| Naive | 1.03 GB |
 | Optimized | 130 MB |
-| Approximate reduction | 8 MB (5.8%) |
+| Approximate reduction | 900 MB (87.4%) |
 
 These sizes are the values reported by the local Docker image listing; they may be rounded.
 
@@ -53,11 +53,19 @@ It includes:
 - A container smoke test against `/healthz`.
 - A final pipeline summary.
 
-The Python dependency installation is implemented as a composite action in `.github/actions/python-deps/action.yml`.
+### Why these GitHub Actions components were chosen
 
-## Evidence
+**Composite action:** The Python dependency installation is implemented in
+`.github/actions/python-deps/action.yml`. A composite action is appropriate
+because dependency installation is a reusable sequence of steps within an
+existing job. It reduces duplicated YAML without requiring a separate runner
+or workflow.
 
-Screenshots and CI timing measurements are recorded in `evidence/`. The evidence includes image-size comparisons, the CI workflow graph, the published GHCR package, and a JSON record of the required-check failure demonstration.
+**Reusable workflow:** The Docker build is implemented in
+`.github/workflows/docker-build.yml`. A reusable workflow is appropriate
+because building and exporting a Docker image is a complete job that needs
+its own runner, permissions, inputs, outputs, and artifacts. It allows other
+workflows to invoke the same standardized build process.
 
 
 ## Cache timing experiments
@@ -107,9 +115,9 @@ architecture.
 
 ## Evidence
 
-The `evidence/` directory should contain the requested screenshots:
+The `evidence/` directory contains the following evidence:
 
 - `image-sizes.png` — comparison of the naive and optimized Docker images.
 - `ci-graph.png` — successful CI workflow graph.
 - `ghcr-package.png` — published GitHub Container Registry package.
-- `required-check.png` — required status check demonstrated on a pull request.
+- `required-check.json` — GitHub API record confirming that pull request #6 was blocked by failing checks. A screenshot of the blocked merge remains to be added.
