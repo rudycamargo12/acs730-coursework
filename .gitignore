@@ -10,3 +10,5 @@ lab4/__pycache__/
 lab4/.pytest_cache/
 __pycache__/
 *.pyc
+*.tfplan
+tfplan

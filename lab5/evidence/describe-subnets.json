@@ -1,0 +1,86 @@
+{
+    "Subnets": [
+        {
+            "AvailabilityZoneId": "use1-az6",
+            "OwnerId": "000000000000",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "acs730-lab5-public_a"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "localstack"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "acs730-lab5"
+                },
+                {
+                    "Key": "Lab",
+                    "Value": "ACS730-Lab5"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:000000000000:subnet/subnet-ed26a15d",
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name"
+            },
+            "SubnetId": "subnet-ed26a15d",
+            "State": "available",
+            "VpcId": "vpc-5dcafc92",
+            "CidrBlock": "10.50.1.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "us-east-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        },
+        {
+            "AvailabilityZoneId": "use1-az1",
+            "OwnerId": "000000000000",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "acs730-lab5"
+                },
+                {
+                    "Key": "Lab",
+                    "Value": "ACS730-Lab5"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "acs730-lab5-public_b"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "localstack"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:000000000000:subnet/subnet-d13e73e8",
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name"
+            },
+            "SubnetId": "subnet-d13e73e8",
+            "State": "available",
+            "VpcId": "vpc-5dcafc92",
+            "CidrBlock": "10.50.2.0/24",
+            "AvailableIpAddressCount": 251,
+            "AvailabilityZone": "us-east-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        }
+    ]
+}

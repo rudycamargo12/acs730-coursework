@@ -1,0 +1,45 @@
+{
+    "Vpcs": [
+        {
+            "OwnerId": "000000000000",
+            "InstanceTenancy": "default",
+            "Ipv6CidrBlockAssociationSet": [],
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-3a47a108",
+                    "CidrBlock": "10.50.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Environment",
+                    "Value": "localstack"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "acs730-lab5-vpc"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "acs730-lab5"
+                },
+                {
+                    "Key": "Lab",
+                    "Value": "ACS730-Lab5"
+                }
+            ],
+            "VpcId": "vpc-5dcafc92",
+            "State": "available",
+            "CidrBlock": "10.50.0.0/16",
+            "DhcpOptionsId": "default"
+        }
+    ]
+}
