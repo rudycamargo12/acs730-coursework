@@ -120,4 +120,6 @@ The `evidence/` directory contains the following evidence:
 - `image-sizes.png` — comparison of the naive and optimized Docker images.
 - `ci-graph.png` — successful CI workflow graph.
 - `ghcr-package.png` — published GitHub Container Registry package.
-- `required-check.json` — GitHub API record confirming that pull request #6 was blocked by failing checks. A screenshot of the blocked merge remains to be added.
+- `required-check.png` — screenshot evidence from the original required-check demonstration (PR #3).
+- `required-check-details.json` — GitHub API record showing failed CI checks and the BLOCKED merge status for PR #3.
+- `required-check.json` — GitHub API record confirming that PR #6 was blocked by failing mandatory checks.
