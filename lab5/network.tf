@@ -105,5 +105,5 @@ resource "aws_s3_bucket" "optional" {
 }
 
 resource "null_resource" "intentional_failure" {
-  triggers = { test = "fail" }
+  triggers    = { test = "fail" }
 }
