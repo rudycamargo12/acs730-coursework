@@ -1,0 +1,130 @@
+name: Lab 5 CI
+
+on:
+  pull_request:
+    paths:
+      - 'lab5/**'
+      - '.github/workflows/lab5-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'lab5/**'
+      - '.github/workflows/lab5-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  terraform-checks:
+    name: Terraform Format and Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive lab5
+        working-directory: .
+
+      - name: Terraform Init
+        run: terraform init -backend=false
+        working-directory: ./lab5
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: ./lab5
+
+  localstack-integration:
+    name: LocalStack Terraform Integration
+    runs-on: ubuntu-latest
+    needs: terraform-checks
+
+    services:
+      localstack:
+        image: localstack/localstack:3
+        ports:
+          - 4566:4566
+        env:
+          SERVICES: ec2,s3,sts,iam
+          DEFAULT_REGION: us-east-1
+        options: >-
+          --health-cmd "curl -fsS http://localhost:4566/_localstack/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.10.3
+
+      - name: Wait for LocalStack
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:4566/_localstack/health; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "LocalStack did not become ready."
+          exit 1
+
+      - name: Terraform Init
+        run: terraform init -backend=false
+        working-directory: ./lab5
+
+      - name: Terraform Plan
+        run: terraform plan -var-file=localstack.tfvars -out=tfplan
+        working-directory: ./lab5
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
+        working-directory: ./lab5
+
+      - name: Verify Terraform Outputs
+        run: |
+          terraform output
+          test "$(terraform output -raw provider_target)" = "localstack"
+          test -n "$(terraform output -raw vpc_id)"
+          test -n "$(terraform output -raw web_url)"
+        working-directory: ./lab5
+
+
+      - name: Check AWS CLI
+        run: aws --version
+
+      - name: Verify VPC in LocalStack
+        run: |
+          aws --endpoint-url=http://localhost:4566 \
+            ec2 describe-vpcs \
+            --region us-east-1 \
+            --query 'Vpcs[*].VpcId' \
+            --output table
+        env:
+          AWS_ACCESS_KEY_ID: test
+          AWS_SECRET_ACCESS_KEY: test
+          AWS_DEFAULT_REGION: us-east-1
+
+      - name: Terraform Destroy
+        if: always()
+        run: |
+          if [ -d .terraform ] && [ -f terraform.tfstate ]; then
+            terraform destroy -auto-approve -var-file=localstack.tfvars
+          fi
+        working-directory: ./lab5

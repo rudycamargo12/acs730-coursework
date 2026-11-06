@@ -1,0 +1,2 @@
+
+An error occurred (InvalidVpcID.NotFound) when calling the DescribeVpcs operation: VpcID {'vpc-5dcafc92'} does not exist.
