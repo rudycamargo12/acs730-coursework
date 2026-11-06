@@ -103,7 +103,3 @@ resource "aws_s3_bucket" "optional" {
     Name = "${var.project_name}-bucket"
   })
 }
-
-resource "null_resource" "intentional_failure" {
-  triggers    = { test = "fail" }
-}
