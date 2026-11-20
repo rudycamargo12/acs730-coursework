@@ -1,0 +1,80 @@
+name: Lab 6 - Configure Web Server
+
+on:
+  push:
+    paths:
+      - "lab6/**"
+      - ".github/workflows/lab6-configure.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  configure:
+    name: Configure EC2 using Ansible and SSM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
+
+      - name: Install Ansible and AWS dependencies
+        run: |
+          python3 -m pip install --user \
+            "ansible-core==2.15.13" \
+            boto3 \
+            botocore
+          ansible-galaxy collection install \
+            amazon.aws:8.0.0 \
+            community.aws:8.0.0
+
+      - name: Install AWS Session Manager plugin
+        run: |
+          curl -fsSL \
+            https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb \
+            -o /tmp/session-manager-plugin.deb
+          sudo dpkg -i /tmp/session-manager-plugin.deb
+          session-manager-plugin --version
+
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Wait for EC2 SSM availability
+        run: |
+          INSTANCE_ID="i-07f9d4261d7f91770"
+
+          for attempt in $(seq 1 20); do
+            STATUS=$(aws ssm describe-instance-information \
+              --filters "Key=InstanceIds,Values=${INSTANCE_ID}" \
+              --query 'InstanceInformationList[0].PingStatus' \
+              --output text)
+
+            if [ "$STATUS" = "Online" ]; then
+              echo "EC2 instance is Online in SSM"
+              exit 0
+            fi
+
+            echo "Waiting for SSM: attempt ${attempt}/20"
+            sleep 15
+          done
+
+          echo "EC2 instance did not become Online"
+          exit 1
+
+      - name: Check dynamic inventory
+        working-directory: lab6/ansible
+        run: ansible-inventory --graph
+
+      - name: Configure Apache using Ansible
+        working-directory: lab6/ansible
+        run: ansible-playbook site.yml

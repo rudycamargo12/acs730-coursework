@@ -1,0 +1,17 @@
+-----------------------------------------------------------
+|                   TerminateInstances                    |
++---------------+-----------------------+-----------------+
+| CurrentState  |      InstanceId       |  PreviousState  |
++---------------+-----------------------+-----------------+
+|  shutting-down|  i-078af755d01f616df  |  running        |
++---------------+-----------------------+-----------------+
+---------------------------------------
+|          DescribeInstances          |
++----------------------+--------------+
+|      InstanceId      |    State     |
++----------------------+--------------+
+|  i-078af755d01f616df |  terminated  |
++----------------------+--------------+
+Deregistered Golden AMI: ami-083bd7eddfa3cdfcd
+Deleted Golden AMI snapshot: snap-0616d5415d4221d6e
+Verification: InvalidSnapshot.NotFound - snapshot no longer exists

@@ -1,0 +1,12 @@
+=== Golden AMI Instance ===
+---------------------------------------------
+|             DescribeInstances             |
++-------------+-----------------------------+
+|  InstanceId |  i-078af755d01f616df        |
+|  LaunchTime |  2026-11-20T17:41:05+00:00  |
+|  PublicIP   |  44.201.89.134              |
+|  State      |  running                    |
++-------------+-----------------------------+
+
+=== HTTP Verification ===
+HTTP Status: 200
