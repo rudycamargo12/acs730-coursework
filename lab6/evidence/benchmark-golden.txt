@@ -1,0 +1,5 @@
+Instance: i-040ab99a102f08801
+Waiting for HTTP 200...
+HTTP status: 200
+Public IP: 174.129.159.237
+Time to ready: 19 seconds

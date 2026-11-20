@@ -1,0 +1,28 @@
+ACS730 Lab 6 - Boot-to-Ready Comparison
+
+Method A: Golden AMI (Packer)
+AMI: ami-0c3c99d485ae3cb04
+Instance: i-040ab99a102f08801
+HTTP status: 200
+Elapsed time from launch request: 21 seconds
+HTTP polling duration: 19 seconds
+
+Method B: Base AMI + Ansible over AWS SSM
+AMI: ami-0aacbf72109c53c0c
+Instance: i-062197c2bdb2727c9
+HTTP status: 200
+Elapsed time from launch request to manual verification: 178 seconds
+Ansible result: ok=5, changed=4, unreachable=0, failed=0
+
+Conclusion:
+Both methods successfully deployed an Apache web server.
+The Golden AMI was ready in 21 seconds because Apache was
+preinstalled and enabled during image creation.
+
+The Ansible method required configuration after instance launch.
+Its 178-second measurement includes manual pauses, SSM readiness,
+playbook execution, and HTTP verification.
+
+These results demonstrate the operational difference between
+baking configuration into an AMI and configuring after launch,
+but they are not a controlled performance benchmark.

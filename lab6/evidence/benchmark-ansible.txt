@@ -1,0 +1,7 @@
+Method: Base AMI + Ansible over SSM
+Instance: i-062197c2bdb2727c9
+Public IP: 13.222.222.84
+HTTP status: 200
+Launch timestamp: 1795201313
+Verification timestamp: 1795201491
+Elapsed time to verification: 178 seconds
