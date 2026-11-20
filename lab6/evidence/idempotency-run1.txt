@@ -1,0 +1,21 @@
+
+PLAY [Configure ACS730 Lab 6 web server] ***************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [i-07f9d4261d7f91770]
+
+TASK [webserver : Install Apache web server] ***********************************
+changed: [i-07f9d4261d7f91770]
+
+TASK [webserver : Deploy web page] *********************************************
+changed: [i-07f9d4261d7f91770]
+
+TASK [webserver : Ensure Apache is running and enabled] ************************
+changed: [i-07f9d4261d7f91770]
+
+RUNNING HANDLER [webserver : Restart Apache] ***********************************
+changed: [i-07f9d4261d7f91770]
+
+PLAY RECAP *********************************************************************
+i-07f9d4261d7f91770        : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

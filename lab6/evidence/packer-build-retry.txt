@@ -1,0 +1,147 @@
+[1;32mamazon-ebs.web: output will be in this color.[0m
+
+[1;32m==> amazon-ebs.web: Prevalidating any provided VPC information[0m
+[1;32m==> amazon-ebs.web: Prevalidating AMI Name: acs730-lab6-golden-1795195865[0m
+[1;32m==> amazon-ebs.web: Found Image ID: ami-0aacbf72109c53c0c[0m
+[1;32m==> amazon-ebs.web: Creating temporary keypair: packer_6b0083d9-3c72-1f79-c77c-9e8050d9f16e[0m
+[1;32m==> amazon-ebs.web: Creating temporary security group for this instance: packer_6b0083da-7a25-fece-f075-13fab320e31f[0m
+[1;32m==> amazon-ebs.web: Launching a source AWS instance...[0m
+[1;32m==> amazon-ebs.web: Instance ID: i-02af81397bff8ad2a[0m
+[1;32m==> amazon-ebs.web: Waiting for instance (i-02af81397bff8ad2a) to become ready...[0m
+[1;32m==> amazon-ebs.web: Using SSH communicator to connect: localhost[0m
+[1;32m==> amazon-ebs.web: Waiting for SSH to become available...[0m
+[1;32m==> amazon-ebs.web: Starting portForwarding session "i-0c87de5311c9918e2-ijoyi6pyr7qdyesalrd3b95hk8".[0m
+[1;32m==> amazon-ebs.web: Starting session with SessionId: i-0c87de5311c9918e2-ijoyi6pyr7qdyesalrd3b95hk8[0m
+[1;32m==> amazon-ebs.web: Port 8909 opened for sessionId i-0c87de5311c9918e2-ijoyi6pyr7qdyesalrd3b95hk8.[0m
+[1;32m==> amazon-ebs.web: Waiting for connections...[0m
+[1;32m==> amazon-ebs.web: Connection accepted for session [i-0c87de5311c9918e2-ijoyi6pyr7qdyesalrd3b95hk8][0m
+[1;32m==> amazon-ebs.web: Connected to SSH![0m
+[1;32m==> amazon-ebs.web: Uploading files/index.html => /tmp/index.html[0m
+[0;32m    amazon-ebs.web: index.html[0m 391 B / 391 B [===========================================================] 100.00%
+[1A[0;32m    amazon-ebs.web: index.html[0m 391 B / 391 B [===========================================================] 100.00%
+[1A[0;32m    amazon-ebs.web: index.html[0m 391 B / 391 B [========================================================] 100.00% 0s
+[1;32m==> amazon-ebs.web: Provisioning with shell script: /tmp/packer-shell3588027309[0m
+[1;32m==> amazon-ebs.web: Waiting for process with pid 1916 to finish.[0m
+[1;32m==> amazon-ebs.web: Dependencies resolved.[0m
+[1;32m==> amazon-ebs.web: ================================================================================[0m
+[1;32m==> amazon-ebs.web:  Package               Arch     Version                     Repository     Size[0m
+[1;32m==> amazon-ebs.web: ================================================================================[0m
+[1;32m==> amazon-ebs.web: Installing:[0m
+[1;32m==> amazon-ebs.web:  httpd                 x86_64   2.4.71-1.amzn2023.0.1       amazonlinux    45 k[0m
+[1;32m==> amazon-ebs.web: Installing dependencies:[0m
+[1;32m==> amazon-ebs.web:  apr                   x86_64   1.7.5-1.amzn2023.0.4        amazonlinux   129 k[0m
+[1;32m==> amazon-ebs.web:  apr-util              x86_64   1.6.5-1.amzn2023.0.1        amazonlinux   100 k[0m
+[1;32m==> amazon-ebs.web:  apr-util-lmdb         x86_64   1.6.5-1.amzn2023.0.1        amazonlinux    15 k[0m
+[1;32m==> amazon-ebs.web:  generic-logos-httpd   noarch   18.0.0-12.amzn2023.0.3      amazonlinux    19 k[0m
+[1;32m==> amazon-ebs.web:  httpd-core            x86_64   2.4.71-1.amzn2023.0.1       amazonlinux   1.4 M[0m
+[1;32m==> amazon-ebs.web:  httpd-filesystem      noarch   2.4.71-1.amzn2023.0.1       amazonlinux    12 k[0m
+[1;32m==> amazon-ebs.web:  httpd-tools           x86_64   2.4.71-1.amzn2023.0.1       amazonlinux    79 k[0m
+[1;32m==> amazon-ebs.web:  libbrotli             x86_64   1.1.0-1.amzn2023.0.2        amazonlinux   333 k[0m
+[1;32m==> amazon-ebs.web:  mailcap               noarch   2.1.49-3.amzn2023.0.3       amazonlinux    33 k[0m
+[1;32m==> amazon-ebs.web: Installing weak dependencies:[0m
+[1;32m==> amazon-ebs.web:  apr-util-openssl      x86_64   1.6.5-1.amzn2023.0.1        amazonlinux    17 k[0m
+[1;32m==> amazon-ebs.web:  mod_http2             x86_64   1:2.4.71-1.amzn2023.0.1     amazonlinux   130 k[0m
+[1;32m==> amazon-ebs.web:  mod_lua               x86_64   2.4.71-1.amzn2023.0.1       amazonlinux    58 k[0m
+[1;32m==> amazon-ebs.web:[0m
+[1;32m==> amazon-ebs.web: Transaction Summary[0m
+[1;32m==> amazon-ebs.web: ================================================================================[0m
+[1;32m==> amazon-ebs.web: Install  13 Packages[0m
+[1;32m==> amazon-ebs.web:[0m
+[1;32m==> amazon-ebs.web: Total download size: 2.3 M[0m
+[1;32m==> amazon-ebs.web: Installed size: 6.9 M[0m
+[1;32m==> amazon-ebs.web: Downloading Packages:[0m
+[1;32m==> amazon-ebs.web: (1/13): apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_ 498 kB/s |  15 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (2/13): apr-1.7.5-1.amzn2023.0.4.x86_64.rpm     3.4 MB/s | 129 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (3/13): apr-util-1.6.5-1.amzn2023.0.1.x86_64.rp 2.4 MB/s | 100 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (4/13): apr-util-openssl-1.6.5-1.amzn2023.0.1.x 650 kB/s |  17 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (5/13): generic-logos-httpd-18.0.0-12.amzn2023. 756 kB/s |  19 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (6/13): httpd-2.4.71-1.amzn2023.0.1.x86_64.rpm  1.5 MB/s |  45 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (7/13): httpd-filesystem-2.4.71-1.amzn2023.0.1. 467 kB/s |  12 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (8/13): httpd-core-2.4.71-1.amzn2023.0.1.x86_64  28 MB/s | 1.4 MB     00:00[0m
+[1;32m==> amazon-ebs.web: (9/13): httpd-tools-2.4.71-1.amzn2023.0.1.x86_6 2.0 MB/s |  79 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (10/13): libbrotli-1.1.0-1.amzn2023.0.2.x86_64.  10 MB/s | 333 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (11/13): mailcap-2.1.49-3.amzn2023.0.3.noarch.r 999 kB/s |  33 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (12/13): mod_http2-2.4.71-1.amzn2023.0.1.x86_64 3.9 MB/s | 130 kB     00:00[0m
+[1;32m==> amazon-ebs.web: (13/13): mod_lua-2.4.71-1.amzn2023.0.1.x86_64.r 1.9 MB/s |  58 kB     00:00[0m
+[1;32m==> amazon-ebs.web: --------------------------------------------------------------------------------[0m
+[1;32m==> amazon-ebs.web: Total                                            11 MB/s | 2.3 MB     00:00[0m
+[1;32m==> amazon-ebs.web: Running transaction check[0m
+[1;32m==> amazon-ebs.web: Transaction check succeeded.[0m
+[1;32m==> amazon-ebs.web: Running transaction test[0m
+[1;32m==> amazon-ebs.web: Transaction test succeeded.[0m
+[1;32m==> amazon-ebs.web: Running transaction[0m
+[1;32m==> amazon-ebs.web:   Preparing        :                                                        1/1[0m
+[1;32m==> amazon-ebs.web:   Installing       : apr-1.7.5-1.amzn2023.0.4.x86_64                       1/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64             2/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64          3/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : apr-util-1.6.5-1.amzn2023.0.1.x86_64                  4/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : mailcap-2.1.49-3.amzn2023.0.3.noarch                  5/13[0m
+[1;32m==> amazon-ebs.web:   Running scriptlet: httpd-filesystem-2.4.71-1.amzn2023.0.1.noarch         6/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : httpd-filesystem-2.4.71-1.amzn2023.0.1.noarch         6/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : httpd-tools-2.4.71-1.amzn2023.0.1.x86_64              7/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : httpd-core-2.4.71-1.amzn2023.0.1.x86_64               8/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : mod_http2-1:2.4.71-1.amzn2023.0.1.x86_64              9/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : mod_lua-2.4.71-1.amzn2023.0.1.x86_64                 10/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : libbrotli-1.1.0-1.amzn2023.0.2.x86_64                11/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch    12/13[0m
+[1;32m==> amazon-ebs.web:   Installing       : httpd-2.4.71-1.amzn2023.0.1.x86_64                   13/13[0m
+[1;32m==> amazon-ebs.web:   Running scriptlet: httpd-2.4.71-1.amzn2023.0.1.x86_64                   13/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : apr-1.7.5-1.amzn2023.0.4.x86_64                       1/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : apr-util-1.6.5-1.amzn2023.0.1.x86_64                  2/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64             3/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64          4/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch     5/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : httpd-2.4.71-1.amzn2023.0.1.x86_64                    6/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : httpd-core-2.4.71-1.amzn2023.0.1.x86_64               7/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : httpd-filesystem-2.4.71-1.amzn2023.0.1.noarch         8/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : httpd-tools-2.4.71-1.amzn2023.0.1.x86_64              9/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : libbrotli-1.1.0-1.amzn2023.0.2.x86_64                10/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : mailcap-2.1.49-3.amzn2023.0.3.noarch                 11/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : mod_http2-1:2.4.71-1.amzn2023.0.1.x86_64             12/13[0m
+[1;32m==> amazon-ebs.web:   Verifying        : mod_lua-2.4.71-1.amzn2023.0.1.x86_64                 13/13[0m
+[1;32m==> amazon-ebs.web:[0m
+[1;32m==> amazon-ebs.web: Installed:[0m
+[1;32m==> amazon-ebs.web:   apr-1.7.5-1.amzn2023.0.4.x86_64[0m
+[1;32m==> amazon-ebs.web:   apr-util-1.6.5-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   apr-util-lmdb-1.6.5-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   apr-util-openssl-1.6.5-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch[0m
+[1;32m==> amazon-ebs.web:   httpd-2.4.71-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   httpd-core-2.4.71-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   httpd-filesystem-2.4.71-1.amzn2023.0.1.noarch[0m
+[1;32m==> amazon-ebs.web:   httpd-tools-2.4.71-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   libbrotli-1.1.0-1.amzn2023.0.2.x86_64[0m
+[1;32m==> amazon-ebs.web:   mailcap-2.1.49-3.amzn2023.0.3.noarch[0m
+[1;32m==> amazon-ebs.web:   mod_http2-1:2.4.71-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:   mod_lua-2.4.71-1.amzn2023.0.1.x86_64[0m
+[1;32m==> amazon-ebs.web:[0m
+[1;32m==> amazon-ebs.web: Complete![0m
+[1;31m==> amazon-ebs.web: Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.[0m
+[1;32m==> amazon-ebs.web: Stopping the source instance...[0m
+[1;32m==> amazon-ebs.web: Stopping instance[0m
+[1;32m==> amazon-ebs.web: Waiting for the instance to stop...[0m
+[1;32m==> amazon-ebs.web: Creating AMI acs730-lab6-golden-1795195865 from instance i-02af81397bff8ad2a[0m
+[1;32m==> amazon-ebs.web: Attaching run tags to AMI...[0m
+[1;32m==> amazon-ebs.web: AMI: ami-083bd7eddfa3cdfcd[0m
+[1;32m==> amazon-ebs.web: Waiting for AMI to become ready...[0m
+[1;32m==> amazon-ebs.web: Skipping Enable AMI deprecation...[0m
+[1;32m==> amazon-ebs.web: Skipping Enable AMI deregistration protection...[0m
+[1;32m==> amazon-ebs.web: Adding tags to AMI (ami-083bd7eddfa3cdfcd)...[0m
+[1;32m==> amazon-ebs.web: Tagging snapshot: snap-0616d5415d4221d6e[0m
+[1;32m==> amazon-ebs.web: Creating AMI tags[0m
+[1;32m==> amazon-ebs.web: Adding tag: "Name": "acs730-lab6-golden"[0m
+[1;32m==> amazon-ebs.web: Adding tag: "Project": "acs730-lab6"[0m
+[1;32m==> amazon-ebs.web: Creating snapshot tags[0m
+[1;32m==> amazon-ebs.web: Terminating the source AWS instance...[0m
+[1;32m==> amazon-ebs.web: Cleaning up any extra volumes...[0m
+[1;32m==> amazon-ebs.web: No volumes to clean up, skipping[0m
+[1;32m==> amazon-ebs.web: Deleting temporary security group...[0m
+[1;32m==> amazon-ebs.web: Deleting temporary keypair...[0m
+[1;32mBuild 'amazon-ebs.web' finished after 3 minutes 32 seconds.[0m
+
+==> Wait completed after 3 minutes 32 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs.web: AMIs were created:
+us-east-1: ami-083bd7eddfa3cdfcd
+

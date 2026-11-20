@@ -1,0 +1,5 @@
+---
+webserver_package: httpd
+webserver_service: httpd
+webserver_document_root: /var/www/html
+webserver_page_title: "ACS730 Lab 6"
