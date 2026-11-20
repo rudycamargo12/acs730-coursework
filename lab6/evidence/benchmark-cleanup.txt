@@ -1,0 +1,27 @@
+ACS730 Lab 6 - Benchmark Cleanup
+Date: Fri Nov 20 19:08:15 UTC 2026
+
+=== Benchmark instances ===
+---------------------------------------
+|          DescribeInstances          |
++----------------------+--------------+
+|       Instance       |    State     |
++----------------------+--------------+
+|  i-040ab99a102f08801 |  terminated  |
+|  i-062197c2bdb2727c9 |  terminated  |
++----------------------+--------------+
+
+=== Remaining owned AMIs ===
+
+=== Snapshot verification ===
+
+An error occurred (InvalidSnapshot.NotFound) when calling the DescribeSnapshots operation: The snapshot 'snap-0b9aaa1753304d6b3' does not exist.
+
+=== Main Lab 6 instance ===
+---------------------------------------------------
+|                DescribeInstances                |
++----------------------+---------------+----------+
+|       Instance       |   PublicIP    |  State   |
++----------------------+---------------+----------+
+|  i-07f9d4261d7f91770 |  52.90.114.1  |  running |
++----------------------+---------------+----------+
