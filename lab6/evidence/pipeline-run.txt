@@ -1,0 +1,284 @@
+Configure EC2 using Ansible and SSM	Set up job	﻿2026-11-20T18:15:01.3506691Z Current runner version: '2.338.2'
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3531311Z ##[group]Runner Image Provisioner
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3532190Z Hosted Compute Agent
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3532889Z Version: 20261111.635
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3533520Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3534233Z Build Date: 2026-11-11T01:49:01Z
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3534979Z Worker ID: {5111ff97-1a96-415a-b16c-00b1b6cdfca2}
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3535712Z Region: us-east-1
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3536295Z Cloud: AWS
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3536826Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3538182Z ##[group]Operating System
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3538854Z Ubuntu
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3539373Z 24.04.5
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3539938Z LTS
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3540462Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3541352Z ##[group]Runner Image
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3542018Z Image: ubuntu-24.04
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3542561Z Version: 20261116.133.1
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3543647Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.133/images/ubuntu/Ubuntu2404-Readme.md
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3545470Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.133
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3546394Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3547486Z ##[group]GITHUB_TOKEN Permissions
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3549710Z Contents: read
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3550363Z Metadata: read
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3551174Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3553595Z Secret source: Actions
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3554545Z Cache mode: write
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3555401Z Prepare workflow directory
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3877332Z Prepare all required actions
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.3928509Z Getting action download info
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:01.6004980Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:03.0662191Z Download action repository 'aws-actions/configure-aws-credentials@v4' (SHA:7474bc4690e29a8392af63c5b98e7449536d5c3a)
+Configure EC2 using Ansible and SSM	Set up job	2026-11-20T18:15:03.3134674Z Complete job name: Configure EC2 using Ansible and SSM
+Configure EC2 using Ansible and SSM	Checkout repository	﻿2026-11-20T18:15:03.3790402Z ##[group]Run actions/checkout@v4
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3791728Z with:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3792229Z   repository: rudycamargo12/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3796085Z   token: ***
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3796509Z   ssh-strict: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3796986Z   ssh-user: git
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3797476Z   persist-credentials: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3797954Z   clean: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3798449Z   sparse-checkout-cone-mode: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3798935Z   fetch-depth: 1
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3799381Z   fetch-tags: false
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3799815Z   show-progress: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3800313Z   lfs: false
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3801030Z   submodules: false
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3801478Z   set-safe-directory: true
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3802030Z   allow-unsafe-pr-checkout: false
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:03.3802768Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:05.8471755Z Syncing repository: rudycamargo12/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:05.8473591Z ##[group]Getting Git version info
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:05.8474136Z Working directory is '/home/runner/work/acs730-coursework/acs730-coursework'
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:05.8475007Z [command]/usr/bin/git version
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1489840Z git version 2.56.1
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1504636Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1514829Z Temporarily overriding HOME='/home/runner/work/_temp/6218cab6-4d7a-422d-b13e-7547f6f9b84d' before making global git config changes
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1518679Z Adding repository directory to the temporary git global config as a safe directory
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1519267Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/acs730-coursework/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1571897Z Deleting the contents of '/home/runner/work/acs730-coursework/acs730-coursework'
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1574496Z ##[group]Initializing the repository
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.1577600Z [command]/usr/bin/git init /home/runner/work/acs730-coursework/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2367970Z hint: Using 'master' as the name for the initial branch. This default branch name
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2369514Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2369960Z hint: to use in all of your new repositories, which will suppress this warning,
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2370398Z hint: call:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2370802Z hint:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2371180Z hint: 	git config --global init.defaultBranch <name>
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2371481Z hint:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2371783Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2372357Z hint: 'development'. The just-created branch can be renamed via this command:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2372737Z hint:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2373060Z hint: 	git branch -m <name>
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2373300Z hint:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2373595Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2378090Z Initialized empty Git repository in /home/runner/work/acs730-coursework/acs730-coursework/.git/
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2386637Z [command]/usr/bin/git remote add origin https://github.com/rudycamargo12/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2441680Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2442214Z ##[group]Disabling automatic garbage collection
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2443846Z [command]/usr/bin/git config --local gc.auto 0
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2466477Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2466947Z ##[group]Setting up auth
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2471688Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.2500915Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.5738780Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.5764361Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.5914509Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.5937296Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.6085335Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.6114366Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.6114897Z ##[group]Fetching the repository
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.6126619Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +acdbb7014f304a8f3086b89932cd5fcbdb497129:refs/remotes/origin/lab6-week8
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9505632Z From https://github.com/rudycamargo12/acs730-coursework
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9506198Z  * [new ref]         acdbb7014f304a8f3086b89932cd5fcbdb497129 -> origin/lab6-week8
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9509488Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9510043Z ##[group]Determining the checkout info
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9512169Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9516380Z [command]/usr/bin/git sparse-checkout disable
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9591250Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9607425Z ##[group]Checking out the ref
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9611108Z [command]/usr/bin/git checkout --progress --force -B lab6-week8 refs/remotes/origin/lab6-week8
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9720197Z Switched to a new branch 'lab6-week8'
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9732487Z branch 'lab6-week8' set up to track 'origin/lab6-week8'.
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9739662Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9768442Z [command]/usr/bin/git log -1 --format=%H
+Configure EC2 using Ansible and SSM	Checkout repository	2026-11-20T18:15:06.9786552Z acdbb7014f304a8f3086b89932cd5fcbdb497129
+Configure EC2 using Ansible and SSM	Configure AWS credentials	﻿2026-11-20T18:15:07.0000312Z ##[group]Run aws-actions/configure-aws-credentials@v4
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0000886Z with:
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0001376Z   aws-access-key-id: ***
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0001730Z   aws-secret-access-key: ***
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0004440Z   aws-session-token: ***
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0004694Z   aws-region: us-east-1
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0004956Z   audience: sts.amazonaws.com
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0005265Z   output-env-credentials: true
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.0005552Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Configure AWS credentials	2026-11-20T18:15:07.3425011Z Proceeding with IAM user credentials
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	﻿2026-11-20T18:15:07.3542100Z ##[group]Run python3 -m pip install --user \
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3542761Z ^[[36;1mpython3 -m pip install --user \^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3543204Z ^[[36;1m  "ansible-core==2.15.13" \^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3543561Z ^[[36;1m  boto3 \^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3543875Z ^[[36;1m  botocore^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3544248Z ^[[36;1mansible-galaxy collection install \^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3544744Z ^[[36;1m  amazon.aws:8.0.0 \^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.3545088Z ^[[36;1m  community.aws:8.0.0^[[0m
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5675098Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5675567Z env:
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5675814Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5676146Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5676618Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5676978Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5679661Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:07.5679929Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.5568768Z Collecting ansible-core==2.15.13
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6024966Z   Downloading ansible_core-2.15.13-py3-none-any.whl.metadata (7.0 kB)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6054071Z Requirement already satisfied: boto3 in /usr/lib/python3/dist-packages (1.34.46)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6059371Z Requirement already satisfied: botocore in /usr/lib/python3/dist-packages (1.34.46)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6089371Z Requirement already satisfied: jinja2>=3.0.0 in /usr/lib/python3/dist-packages (from ansible-core==2.15.13) (3.1.2)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6097762Z Requirement already satisfied: PyYAML>=5.1 in /usr/lib/python3/dist-packages (from ansible-core==2.15.13) (6.0.1)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6103311Z Requirement already satisfied: cryptography in /usr/lib/python3/dist-packages (from ansible-core==2.15.13) (41.0.7)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6107969Z Requirement already satisfied: packaging in /usr/lib/python3/dist-packages (from ansible-core==2.15.13) (24.0)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6291708Z Collecting resolvelib<1.1.0,>=0.5.3 (from ansible-core==2.15.13)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6397264Z   Downloading resolvelib-1.0.1-py2.py3-none-any.whl.metadata (4.0 kB)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.6744474Z Downloading ansible_core-2.15.13-py3-none-any.whl (2.3 MB)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.7325946Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 40.3 MB/s eta 0:00:00
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.7428492Z Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:11.9181073Z Installing collected packages: resolvelib, ansible-core
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:15:12.7030482Z Successfully installed ansible-core-2.15.13 resolvelib-1.0.1
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2891498Z Starting galaxy collection install process
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2892373Z Process install dependency map
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2892747Z Starting collection install process
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2893833Z Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/amazon-aws-8.0.0.tar.gz to /home/runner/.ansible/tmp/ansible-local-2292yh37x1bo/tmpg3gkdlel/amazon-aws-8.0.0-25m4egsw
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2894982Z Installing 'amazon.aws:8.0.0' to '/home/runner/.ansible/collections/ansible_collections/amazon/aws'
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2895519Z amazon.aws:8.0.0 was installed successfully
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2896589Z Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-aws-8.0.0.tar.gz to /home/runner/.ansible/tmp/ansible-local-2292yh37x1bo/tmpg3gkdlel/community-aws-8.0.0-jqocjyrq
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2897833Z Installing 'community.aws:8.0.0' to '/home/runner/.ansible/collections/ansible_collections/community/aws'
+Configure EC2 using Ansible and SSM	Install Ansible and AWS dependencies	2026-11-20T18:16:06.2898456Z community.aws:8.0.0 was installed successfully
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	﻿2026-11-20T18:16:06.3344591Z ##[group]Run curl -fsSL \
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3345002Z ^[[36;1mcurl -fsSL \^[[0m
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3345586Z ^[[36;1m  https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb \^[[0m
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3346059Z ^[[36;1m  -o /tmp/session-manager-plugin.deb^[[0m
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3346424Z ^[[36;1msudo dpkg -i /tmp/session-manager-plugin.deb^[[0m
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3346734Z ^[[36;1msession-manager-plugin --version^[[0m
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3373311Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3373835Z env:
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3374051Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3374316Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3374856Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3375172Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3377834Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:06.3378081Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.8448279Z (Reading database ... 216720 files and directories currently installed.)
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.8492555Z Preparing to unpack .../tmp/session-manager-plugin.deb ...
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.8539222Z Start removing session-manager-plugin
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.8562390Z Preparing for install
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.8562872Z Unpacking session-manager-plugin (1.2.896.0-1) over (1.2.896.0-1) ...
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.9707600Z Session-manager-plugin removed
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.9772349Z Setting up session-manager-plugin (1.2.896.0-1) ...
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.9862978Z Creating symbolic link for session-manager-plugin
+Configure EC2 using Ansible and SSM	Install AWS Session Manager plugin	2026-11-20T18:16:12.9993201Z 1.2.896.0
+Configure EC2 using Ansible and SSM	Verify AWS identity	﻿2026-11-20T18:16:13.0029261Z ##[group]Run aws sts get-caller-identity
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0029588Z ^[[36;1maws sts get-caller-identity^[[0m
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0056073Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0056416Z env:
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0056711Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0056978Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0057595Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0057916Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0060866Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:13.0061115Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:16.7879666Z {
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:16.7880726Z     "UserId": "AROARMQLQOW7QSEZKJKQ4:user5412352=rrudy-ernesto-camarg@myseneca.ca",
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:16.7881178Z     "Account": "095587169727",
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:16.7886562Z     "Arn": "arn:aws:sts::095587169727:assumed-role/voclabs/user5412352=rrudy-ernesto-camarg@myseneca.ca"
+Configure EC2 using Ansible and SSM	Verify AWS identity	2026-11-20T18:16:16.7887236Z }
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	﻿2026-11-20T18:16:16.8623454Z ##[group]Run INSTANCE_ID="i-07f9d4261d7f91770"
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8623827Z ^[[36;1mINSTANCE_ID="i-07f9d4261d7f91770"^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8624135Z ^[[36;1m^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8624338Z ^[[36;1mfor attempt in $(seq 1 20); do^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8624662Z ^[[36;1m  STATUS=$(aws ssm describe-instance-information \^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8625041Z ^[[36;1m    --filters "Key=InstanceIds,Values=${INSTANCE_ID}" \^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8625424Z ^[[36;1m    --query 'InstanceInformationList[0].PingStatus' \^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8625729Z ^[[36;1m    --output text)^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8625990Z ^[[36;1m^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8626215Z ^[[36;1m  if [ "$STATUS" = "Online" ]; then^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8626514Z ^[[36;1m    echo "EC2 instance is Online in SSM"^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8626816Z ^[[36;1m    exit 0^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8627032Z ^[[36;1m  fi^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8627229Z ^[[36;1m^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8627499Z ^[[36;1m  echo "Waiting for SSM: attempt ${attempt}/20"^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8627872Z ^[[36;1m  sleep 15^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8628092Z ^[[36;1mdone^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8628282Z ^[[36;1m^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8628556Z ^[[36;1mecho "EC2 instance did not become Online"^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8628824Z ^[[36;1mexit 1^[[0m
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8653475Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8653815Z env:
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8654057Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8654288Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8654725Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8655032Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8657690Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:16.8657931Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Wait for EC2 SSM availability	2026-11-20T18:16:17.4305671Z EC2 instance is Online in SSM
+Configure EC2 using Ansible and SSM	Check dynamic inventory	﻿2026-11-20T18:16:17.4333950Z ##[group]Run ansible-inventory --graph
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4334336Z ^[[36;1mansible-inventory --graph^[[0m
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4361661Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4361954Z env:
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4362181Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4362514Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4362873Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4363243Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4365813Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:17.4366094Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4143053Z @all:
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4143578Z   |--@ungrouped:
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4144056Z   |--@aws_ec2:
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4144290Z   |  |--i-07f9d4261d7f91770
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4144601Z   |--@role_web:
+Configure EC2 using Ansible and SSM	Check dynamic inventory	2026-11-20T18:16:19.4144837Z   |  |--i-07f9d4261d7f91770
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	﻿2026-11-20T18:16:19.4817982Z ##[group]Run ansible-playbook site.yml
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4818317Z ^[[36;1mansible-playbook site.yml^[[0m
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4843899Z shell: /usr/bin/bash -e {0}
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4844593Z env:
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4844830Z   AWS_DEFAULT_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4845111Z   AWS_REGION: us-east-1
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4845541Z   AWS_ACCESS_KEY_ID: ***
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4845849Z   AWS_SECRET_ACCESS_KEY: ***
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4848467Z   AWS_SESSION_TOKEN: ***
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:19.4848714Z ##[endgroup]
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:20.0882916Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:20.0883625Z PLAY [Configure ACS730 Lab 6 web server] ***************************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:20.0884089Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:20.0884265Z TASK [Gathering Facts] *********************************************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:23.9001610Z ok: [i-07f9d4261d7f91770]
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:23.9002091Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:23.9002288Z TASK [webserver : Install Apache web server] ***********************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:27.3323879Z ok: [i-07f9d4261d7f91770]
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:27.3324380Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:27.3324642Z TASK [webserver : Deploy web page] *********************************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:30.2361261Z ok: [i-07f9d4261d7f91770]
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:30.2361678Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:30.2371498Z TASK [webserver : Ensure Apache is running and enabled] ************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:32.8527906Z ok: [i-07f9d4261d7f91770]
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:32.8528293Z 
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:32.8528463Z PLAY RECAP *********************************************************************
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:32.8529021Z i-07f9d4261d7f91770        : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Configure EC2 using Ansible and SSM	Configure Apache using Ansible	2026-11-20T18:16:32.8529315Z 
+Configure EC2 using Ansible and SSM	Post Configure AWS credentials	﻿2026-11-20T18:16:32.9317787Z Post job cleanup.
+Configure EC2 using Ansible and SSM	Post Checkout repository	﻿2026-11-20T18:16:33.0178318Z Post job cleanup.
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0815771Z [command]/usr/bin/git version
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0844070Z git version 2.56.1
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0881562Z Temporarily overriding HOME='/home/runner/work/_temp/e9928e54-76c4-49ca-8ba4-883bc4765bce' before making global git config changes
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0882356Z Adding repository directory to the temporary git global config as a safe directory
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0883177Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/acs730-coursework/acs730-coursework
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0912516Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.0924531Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1075751Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1096039Z http.https://github.com/.extraheader
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1102274Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1132461Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1311940Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Configure EC2 using Ansible and SSM	Post Checkout repository	2026-11-20T18:16:33.1332528Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Configure EC2 using Ansible and SSM	Complete job	﻿2026-11-20T18:16:33.1640276Z Cleaning up orphan processes
+Configure EC2 using Ansible and SSM	Complete job	2026-11-20T18:16:33.1888847Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, aws-actions/configure-aws-credentials@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
