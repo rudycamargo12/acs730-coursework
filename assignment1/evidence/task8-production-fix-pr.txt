@@ -1,0 +1,15 @@
+title:	Fix Production Availability Zone
+state:	MERGED
+author:	rudycamargo12
+labels:	
+assignees:	
+reviewers:	
+projects:	
+milestone:	
+number:	14
+url:	https://github.com/rudycamargo12/acs730-coursework/pull/14
+additions:	191
+deletions:	1
+auto-merge:	disabled
+--
+Fix the Production EC2 deployment by changing the subnet to us-east-1d, which supports t3.micro. Preserve existing resources and CloudWatch monitoring.
