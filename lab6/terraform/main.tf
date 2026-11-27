@@ -1,5 +1,13 @@
 terraform {
-  required_version = ">= 1.5.0"
+  backend "s3" {
+    bucket       = "acs730-lab3-tfstate-095587169727"
+    key          = "lab6/terraform.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
+  }
+
+  required_version = ">= 1.10.0"
 
   required_providers {
     aws = {
