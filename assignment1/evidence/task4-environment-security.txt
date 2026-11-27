@@ -1,0 +1,13 @@
+=== Repository secrets ===
+=== Staging secrets ===
+AWS_ACCESS_KEY_ID	2026-11-27T14:54:51Z
+AWS_SECRET_ACCESS_KEY	2026-11-27T14:54:51Z
+AWS_SESSION_TOKEN	2026-11-27T14:54:52Z
+=== Production secrets ===
+AWS_ACCESS_KEY_ID	2026-11-27T14:54:53Z
+AWS_SECRET_ACCESS_KEY	2026-11-27T14:54:53Z
+AWS_SESSION_TOKEN	2026-11-27T14:54:54Z
+=== Production branch policy ===
+{"name":"main","type":"branch"}
+=== Production protection rules ===
+{"deployment_branch_policy":{"custom_branch_policies":true,"protected_branches":false},"name":"prod","protection_rules":[{"id":74255309,"node_id":"GA_kwDOUpc7rc4EbQvN","prevent_self_review":false,"reviewers":[{"reviewer":{"avatar_url":"https://avatars.githubusercontent.com/u/32414407?v=4","events_url":"https://api.github.com/users/rudycamargo12/events{/privacy}","followers_url":"https://api.github.com/users/rudycamargo12/followers","following_url":"https://api.github.com/users/rudycamargo12/following{/other_user}","gists_url":"https://api.github.com/users/rudycamargo12/gists{/gist_id}","gravatar_id":"","html_url":"https://github.com/rudycamargo12","id":32414407,"login":"rudycamargo12","node_id":"MDQ6VXNlcjMyNDE0NDA3","organizations_url":"https://api.github.com/users/rudycamargo12/orgs","received_events_url":"https://api.github.com/users/rudycamargo12/received_events","repos_url":"https://api.github.com/users/rudycamargo12/repos","site_admin":false,"starred_url":"https://api.github.com/users/rudycamargo12/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/rudycamargo12/subscriptions","type":"User","url":"https://api.github.com/users/rudycamargo12","user_view_type":"public"},"type":"User"}],"type":"required_reviewers"},{"id":74255310,"node_id":"GA_kwDOUpc7rc4EbQvO","type":"branch_policy"}]}

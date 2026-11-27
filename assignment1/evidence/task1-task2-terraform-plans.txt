@@ -1,0 +1,15 @@
+========== TERRAFORM PLAN: dev ==========
+module.web.data.aws_ssm_parameter.app_secret: Read complete after 0s [id=/acs730/assignment1/dev/app-secret]
+Plan: 3 to add, 0 to change, 0 to destroy.
+  + app_version               = "1.0.0"
+  + application_secret_loaded = true
+========== TERRAFORM PLAN: staging ==========
+module.web.data.aws_ssm_parameter.app_secret: Read complete after 0s [id=/acs730/assignment1/staging/app-secret]
+Plan: 3 to add, 0 to change, 0 to destroy.
+  + app_version               = "1.0.0"
+  + application_secret_loaded = true
+========== TERRAFORM PLAN: prod ==========
+module.web.data.aws_ssm_parameter.app_secret: Read complete after 0s [id=/acs730/assignment1/prod/app-secret]
+Plan: 3 to add, 0 to change, 0 to destroy.
+  + app_version               = "1.0.0"
+  + application_secret_loaded = true
