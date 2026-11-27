@@ -28,7 +28,7 @@ module "web" {
   ami_id           = "ami-0aacbf72109c53c0c"
   instance_type    = "t3.micro"
   vpc_id           = "vpc-09f164c3e166e37e7"
-  subnet_id        = "subnet-08067a106ebb36748"
+  subnet_id        = "subnet-01c5aa53b896721b5"
   instance_profile = "LabInstanceProfile"
   parameter_name   = "/acs730/assignment1/prod/app-secret"
   cpu_threshold    = 80
