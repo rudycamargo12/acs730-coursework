@@ -1,0 +1,9 @@
+-----------------------------------------------------------------------------------
+|                               DescribeParameters                                |
++-----------------------------------------+-----------+---------------+-----------+
+|                  Name                   |   Tier    |     Type      |  Version  |
++-----------------------------------------+-----------+---------------+-----------+
+|  /acs730/assignment1/dev/app-secret     |  Standard |  SecureString |  1        |
+|  /acs730/assignment1/prod/app-secret    |  Standard |  SecureString |  1        |
+|  /acs730/assignment1/staging/app-secret |  Standard |  SecureString |  1        |
++-----------------------------------------+-----------+---------------+-----------+
